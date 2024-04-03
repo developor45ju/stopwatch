@@ -1,0 +1,102 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: black;
+}
+
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.chrono {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 650px;
+    height: 25%;
+    position: relative;
+    margin: auto;
+    border: 2px solid red;
+}
+
+.chrono::before, .chrono::after {
+    content: ':';
+    position: absolute;
+    font-size: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: blink 1s infinite ease;
+}
+
+.chrono::before {
+    left: calc(calc(650px / 3) - 8px);
+    color: white;
+}
+
+.chrono::after {
+    right: calc(calc(650px / 3) - 8px);
+    color: white;
+}
+
+.wrap__seconds, .wrap__minutes, .wrap__hours {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 2px solid red;
+    width: 32%;
+    margin: 5% 0;
+    font-size: 48px;
+}
+
+.btn {
+    position: absolute;
+    bottom: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+button {
+    bottom: 25%;
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+    font-size: 24px;
+    box-shadow: 2px 1px rgba(0, 0, 0, 0.1);
+    margin: 0 25px;
+}
+
+button:hover {
+    box-shadow: inset 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.btn__start {
+    background-color: greenyellow;
+}
+
+.btn__stop {
+    background-color: red;
+}
+
+@keyframes blink {
+    from {
+        opacity: 0;
+    }
+    50%  {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
